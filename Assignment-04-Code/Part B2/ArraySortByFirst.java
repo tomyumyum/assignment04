@@ -6,14 +6,53 @@ package assignment04PartB2;
  * Please do not change any code in the main method 
  *
  */
-public class ArraySortByFirst
-{
-	public static void sortByFirst(int data[][])
-	{
+public class ArraySortByFirst {
+
+	public static void sortByFirst(int data[][]) {
+
+		for (int i=0; i<data.length-1; i++) {
+			int x = getIndexOfSmalleset(data,i,data.length);
+			swap(data,i,x);
+		}
 	}
 
-	public static void display(int data[][])
-	{
+
+//Finds the index of the smallest value in a portion of an array
+
+private static int getIndexOfSmalleset(int[][] a, int first, int last) {
+	int small = first;
+	for (int i = first; i < last; i++) {
+		if(a [i][0] <a[small][0])
+			small = i;
+	}
+	return small;
+}
+
+
+//Swaps the rows a[i] and a[j]
+
+private static void swap(int [][]a, int i, int j) {
+	for(int x = 0; x < a[0].length; x++) {
+		int temp = a[i][x];
+		a[i][x] =a[j][x];
+		a[j][x] = temp;
+	}
+}
+
+
+
+
+
+//displays two dimesional array
+
+	public static void display(int data[][]) {
+		for (int i=0; i<data.length; i++) {
+			for (int j=0; j<data[i].length;j++) {
+				System.out.print(data[i][j]+ " ");
+			}
+			System.out.println();
+		}
+
 	} 
 
 	//
